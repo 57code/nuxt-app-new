@@ -9,5 +9,7 @@
 </script>
 
 <style scoped>
-
+p {
+  color: var(--link-color)
+}
 </style>
