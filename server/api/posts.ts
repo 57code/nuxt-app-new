@@ -27,5 +27,16 @@ export default defineEventHandler((event) => {
     };
   });
   // 降序排列
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return new Promise<
+    {
+      id: string;
+      title: string;
+      date: Date;
+    }[]
+  >((resolve) => {
+    setTimeout(() => {
+      posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+      resolve(posts);
+    }, 1000);
+  });
 });
