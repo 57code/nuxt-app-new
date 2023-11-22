@@ -5,6 +5,6 @@ export default defineNuxtConfig({
     'assets/global.css'
   ],
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxt/ui'
   ]
 })
