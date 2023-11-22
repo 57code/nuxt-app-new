@@ -16,6 +16,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/ui": "^2.10.0"
+    "@nuxt/ui": "^2.10.0",
+    "gray-matter": "^4.0.3",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   }
 }
