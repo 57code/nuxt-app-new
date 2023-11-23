@@ -5,6 +5,16 @@ export default defineNuxtConfig({
     'assets/global.css'
   ],
   modules: [
-    '@nuxt/ui'
+    '@nuxt/ui',
+    [
+      "@pinia/nuxt",
+      {
+        autoImports: [
+          // 自动引入 `defineStore(), storeToRefs()`
+          "defineStore",
+          "storeToRefs"
+        ],
+      },
+    ]
   ]
 })
