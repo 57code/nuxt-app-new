@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  nitro:{
+    preset: "vercel"
+  },
   app: {
     head: {
       title: "村长的技术空间",
