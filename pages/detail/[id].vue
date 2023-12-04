@@ -28,11 +28,12 @@ const { data, pending, error } = useAsyncData(fetchPost);
 const value = useState("comment", () => "");
 const store = useUser();
 const { isLogin } = storeToRefs(store)
-const toast = useToast()
+// const toast = useToast()
 const onSubmit = () => {
   if (isLogin.value) {
     // 提示用户
-    toast.add({ title: '已提交评论!' })
+    // toast.add({ title: '已提交评论!' })
+    getCurrentInstance()?.proxy?.$toast('已提交评论!')
     // 提交留言...
     value.value = ''
   } else {
