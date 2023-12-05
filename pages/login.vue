@@ -5,12 +5,13 @@
 </template>
 
 <script setup lang="ts">
-const { isLogin } = storeToRefs(useUser())
-const router = useRouter()
-const route = useRoute()
+const { isLogin, token } = storeToRefs(useUser());
+const router = useRouter();
+const route = useRoute();
 const onLogin = () => {
-  isLogin.value = true
-  const callback= route.query.callback?.toString() || ''
-  router.push(callback)
-}
+  isLogin.value = true;
+  token.value = 'abc'
+  const callback = route.query.callback?.toString() || "";
+  router.push(callback);
+};
 </script>

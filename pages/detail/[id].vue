@@ -19,26 +19,42 @@
 <script setup lang="ts">
 import type { NuxtError } from 'nuxt/app';
 
+// definePageMeta({
+//   middleware: ['auth']
+// })
+
 const router = useRouter();
 const route = useRoute()
-const fetchPost = () => $fetch(`/api/detail/${route.params.id}`);
+// const fetchPost = () => $fetch(`/api/detail/${route.params.id}`);
+const store = useUser();
+const fetchPost = () =>
+  $fetch(`/api/detail/${route.params.id}`, {
+    // 如果已登录，请求时携带令牌
+    headers: { token: store.token },
+    onResponseError: ({ response }) => {
+      // 如果响应 401 错误，重新登录
+      if (response.status === 401) {
+        router.push("/login?callback=" + route.path);
+      }
+    },
+  });
 const { data, pending, error } = useAsyncData(fetchPost);
 
 // 增加评论相关逻辑，注意登录状态的获取和使用
 const value = useState("comment", () => "");
-const store = useUser();
-const { isLogin } = storeToRefs(store)
+// const store = useUser();
+// const { isLogin } = storeToRefs(store)
 // const toast = useToast()
 const onSubmit = () => {
-  if (isLogin.value) {
+  // if (isLogin.value) {
     // 提示用户
     // toast.add({ title: '已提交评论!' })
     getCurrentInstance()?.proxy?.$toast('已提交评论!')
     // 提交留言...
     value.value = ''
-  } else {
+  // } else {
     // 要求登录
-    router.push('/login?callback=' + route.path)
-  }
+    // router.push('/login?callback=' + route.path)
+  // }
 }
 </script>
