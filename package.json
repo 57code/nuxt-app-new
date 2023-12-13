@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.10.0",
+    "@nuxtjs/color-mode": "^3.3.2",
     "@pinia/nuxt": "^0.5.1",
     "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
