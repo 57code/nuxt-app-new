@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
   nitro: {
-    preset: 'aws_amplify'
+    preset: 'aws-amplify'
   }
 })
